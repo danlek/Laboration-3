@@ -20,6 +20,7 @@ public class uppgift16a
 		{
 			lotto.add(i, (i + 1));
 		}
+		System.out.print("Lottorad: ");
 		//Randomly take values from array, print them out and then delete them
 		for(int j = 0; j < 7; j++)
 		{
