@@ -3,53 +3,59 @@ import java.util.Random;
 
 public class uppgift16 
 {
-
+	public static int[] lotto = new int[7];
+	
 	public static void main(String[] args) 
 	{
-		int i;
-		double tal;
-		int lotto[] = new int[7];
+		int tal;
+		tal = dice();
+		lotto[0] = tal;
 		
-		for(i = 0; i < 7; i++)
+		for(int i = 1; i < 7; i++)
 		{
-			System.out.println("For-loopen börjar / börjar om");
-			tal = 1 + Math.random() * 34;
-			
-			for(int k = 0; k < 7; k++)
-			{
-				System.out.println("Här börjar kontroll-loopen");
-				if(lotto[k] == (int)tal)
-				{
-					System.out.println(lotto[k] + " " + (int)tal);
-					if(i == 0)
-					{
-						
-						k = 8;
-					}
-					else
-					{
-						
-						i = i--;
-						k = 8;
-					}
-					
-				}
-				else
-				{
-					
-					lotto[i] = (int)tal;
-					
-				}
-			}
-			
+			recursiveController(i);
 		}
 		
-		
-		for(int j = 0; j < 7; j++)
-		{
-			System.out.print(lotto[j] + " ");
-		}
-		
+		show();
 	}
 
+
+	public static void recursiveController(int positionInArray)
+	{
+		int tal;
+		tal = dice();
+		boolean unik = false;
+		boolean reroll = true;
+		while(unik == false)
+		{
+			reroll = false;
+			for(int k = 0; k < positionInArray; k++)
+			{
+				if(tal == lotto[k])
+				{
+					reroll = true;	
+				}
+				else if(k == (positionInArray - 1) && reroll == false)
+				{
+					lotto[positionInArray] = tal;
+					unik = true;
+				}
+				
+			}
+			tal = dice();
+		}
+	}
+	public static int dice()
+	{
+		Random dice = new Random();
+		return (1 + dice.nextInt(7));
+	}
+	public static void show()
+	{
+		System.out.print("Lottorad: ");
+		for(int j = 0; j < 7; j++)
+			{
+				System.out.print(lotto[j] + " ");
+			}
+	}
 }
