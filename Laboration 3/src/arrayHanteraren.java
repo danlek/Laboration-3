@@ -39,13 +39,13 @@ public class arrayHanteraren
 				{
 					System.out.print(get(j) + " ");
 				}
-				else if(get(j) < 100)
+				else if(get(j) < 100 && get(j) > 10)
 				{
 					System.out.print(get(j) + "  ");
 				}
 				else if(get(j) < 10)
 				{
-					System.out.print(get(j) + "     ");
+					System.out.print(get(j) + "   ");
 				}
 			}
 			System.out.println("");//radbyte
