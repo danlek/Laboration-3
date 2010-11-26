@@ -35,11 +35,23 @@ public class arrayHanteraren
 			for(int j = counter; j < (counter + 10); j++)
 			{
 				//System.out.print(slumpadeTal[j] + " ");
-				System.out.print(get(j) + " ");
+				if(get(j) >= 100)
+				{
+					System.out.print(get(j) + " ");
+				}
+				else if(get(j) < 100)
+				{
+					System.out.print(get(j) + "  ");
+				}
+				else if(get(j) < 10)
+				{
+					System.out.print(get(j) + "   ");
+				}
 			}
 			System.out.println("");//radbyte
 			counter = counter + 10;
-		}	
+		}
+		System.out.println("");//radbyte
 	}
 	public void sort()
 	{
