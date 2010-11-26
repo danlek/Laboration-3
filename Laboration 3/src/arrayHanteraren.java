@@ -85,9 +85,69 @@ public class arrayHanteraren
 		}
 		arraySorted = true;
 	}
+	public void statistics()
+	{
+		int sum = 0;
+		//medianen är vid index 49!
+		for(int l = 0; l < 100; l++)
+		{
+			sum = sum + get(l);
+		}
+		System.out.println("Minsta talet är: " + get(0));
+		System.out.println("Största talet är: " + get(99));
+		System.out.println("Medianen är: " + get(49));
+		System.out.println("Medelvärdet är: " + ((double)sum/(double)100));
+		System.out.println("");
+	}
+	public void binarySearch(int targetNumber)
+	{
+		int lowerBound = 0;
+		int upperBound = 99;
+		int precisIMitten = (lowerBound + upperBound )/2;
+		boolean done = false;
+		while(done == false)
+		{
+			if(lowerBound > upperBound)
+			{
+				//talet finns inte i array'n!
+				System.out.println("Talet finns ej i array'n!");
+				done = true;
+			}
+			else if(get(precisIMitten) > targetNumber)
+			{
+				//För stor!
+				upperBound = precisIMitten - 1;
+				precisIMitten = (lowerBound + upperBound )/2;
+				//System.out.println("För stort! Precis i mitten värdet är " + precisIMitten + "upper och lower är" + upperBound + " " + lowerBound);
+			}
+			else if(get(precisIMitten) < targetNumber)
+			{
+				//För liten!
+				lowerBound = precisIMitten + 1;
+				precisIMitten = (lowerBound + upperBound )/2;
+				//System.out.println("För litet! Precis i mitten värdet är " + precisIMitten + "upper och lower är" + upperBound + " " + lowerBound);
+			}
+			else if(get(precisIMitten) == targetNumber)
+			{
+				//bingo!
+				//System.out.println("Talet finns på index " + precisIMitten);
+				int counter = 0;
+				int rest = precisIMitten;
+				while(rest >= 10)
+				{
+					rest = rest - 10;
+					counter++;
+				}
+				rest++;//detta gör så att kolumnerna börjar på 1 istället för 0 ta bort om du vill inte ha det så
+				counter++;//detta gör så att raderna börjar på 1 istället för 0 ta bort om du vill inte ha det så
+				System.out.println("Talet finns på rad " + counter + " och kolumn " + rest);
+				done = true;
+			}
+			
+		}
+	}
 	public void msg(int Typ)
 	{
-		String msg;
 		switch(Typ)
 		{
 		case 1: System.out.println("Du måste skapa en array med slumpade siffor innan du kan ordna det. Välj alternativ 1 först");
@@ -99,7 +159,5 @@ public class arrayHanteraren
 				" 4) Sök efter ett specifikt tal i array'n");
 				break;
 		}
-		
-		
 	}
 }

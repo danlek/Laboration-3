@@ -28,10 +28,14 @@ public class lab3
 				else if(kommand == 3)
 				{
 					//TODO skapa metod som hanterar sån här bajs
+					slump.statistics();
 				}
 				else if(kommand == 4)
 				{
 					//TODO skapa metod som hanterar sån här bajs
+					System.out.print("Skriv ett nummer du vill söka efter i array'n: ");
+					kommand = kommandon.nextInt();
+					slump.binarySearch(kommand);
 				}
 			}
 			else if(slump.arraySorted == false && slump.arrayPopulated == true)
