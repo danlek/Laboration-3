@@ -45,7 +45,7 @@ public class arrayHanteraren
 				}
 				else if(get(j) < 10)
 				{
-					System.out.print(get(j) + "   ");
+					System.out.print(get(j) + "     ");
 				}
 			}
 			System.out.println("");//radbyte
