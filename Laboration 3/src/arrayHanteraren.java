@@ -93,11 +93,12 @@ public class arrayHanteraren
 		{
 			sum = sum + get(l);
 		}
-		System.out.println("Minsta talet är: " + get(0));
-		System.out.println("Största talet är: " + get(99));
-		System.out.println("Medianen är: " + get(49));
-		System.out.println("Medelvärdet är: " + ((double)sum/(double)100));
-		System.out.println("");
+//		System.out.println("Minsta talet är: " + get(0));
+//		System.out.println("Största talet är: " + get(99));
+//		System.out.println("Medianen är: " + get(49));
+//		System.out.println("Medelvärdet är: " + ((double)sum/(double)100));
+//		System.out.println("");
+		msg(6, get(0), get(99), get(49), ((double)sum/(double)100));
 	}
 	public void binarySearch(int targetNumber)
 	{
@@ -110,7 +111,8 @@ public class arrayHanteraren
 			if(lowerBound > upperBound)
 			{
 				//talet finns inte i array'n!
-				System.out.println("Talet finns ej i array'n!");
+				//System.out.println("Talet finns ej i array'n!");
+				msg(5, 0, 0, 0, 0);
 				done = true;
 			}
 			else if(get(precisIMitten) > targetNumber)
@@ -140,23 +142,39 @@ public class arrayHanteraren
 				}
 				rest++;//detta gör så att kolumnerna börjar på 1 istället för 0 ta bort om du vill inte ha det så
 				counter++;//detta gör så att raderna börjar på 1 istället för 0 ta bort om du vill inte ha det så
-				System.out.println("Talet finns på rad " + counter + " och kolumn " + rest);
+				//System.out.println("Talet finns på rad " + counter + " och kolumn " + rest);
+				msg(4, counter, rest, 0, 0);
 				done = true;
 			}
 			
 		}
 	}
-	public void msg(int Typ)
+	public void msg(int Typ, int arg1, int arg2, int arg3, double arg4)
 	{
 		switch(Typ)
 		{
 		case 1: System.out.println("Du måste skapa en array med slumpade siffor innan du kan ordna det. Välj alternativ 1 först");
+				System.out.println("");
 				break;
 		case 2: System.out.println("Du måste ordna talföljden innan du kan söka efter specifika tal eller få ut statistik om talföljden." +
 				"\nVälj alternativ 2 först");
+				System.out.println("");
 				break;
 		case 3: System.out.println("1) Skapa en array med slumpade siffor! 2) Ordna array'n! 3) Få statistik om siffrorna i array'n!" +
-				" 4) Sök efter ett specifikt tal i array'n");
+				" 4) Sök efter ett specifikt tal i array'n 0) Avsluta");
+				System.out.println("");
+				break;
+		case 4: System.out.println("Talet finns på rad " + arg1 + " och kolumn " + arg2);
+				System.out.println("");
+				break;
+		case 5: System.out.println("Talet finns ej i array'n!");
+				System.out.println("");
+				break;
+		case 6: System.out.println("Minsta talet är: " + arg1);
+				System.out.println("Största talet är: " + arg2);
+				System.out.println("Medianen är: " + arg3);
+				System.out.println("Medelvärdet är: " + arg4);
+				System.out.println("");
 				break;
 		}
 	}

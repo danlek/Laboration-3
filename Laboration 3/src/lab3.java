@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 public class lab3 
 {
@@ -7,11 +8,13 @@ public class lab3
 		Scanner kommandon = new Scanner(System.in);
 		int kommand = 1;
 
-		System.out.println("Välkommen till Slumpatron version 0.1! \nVälj bland följande alternativ!");
+		System.out.println("Välkommen till Slumpatron version 0.6! \nVälj bland följande alternativ!");
 		while(kommand != 0)
 		{
-			slump.msg(3);
+			slump.msg(3, 0, 0, 0, 0);
 			kommand = kommandon.nextInt();
+			
+			
 			if(slump.arraySorted == true)
 			{
 				//Om sant så kan man köra alla kommandon.
@@ -53,7 +56,7 @@ public class lab3
 				}
 				else if(kommand > 2)
 				{
-					slump.msg(2);
+					slump.msg(2, 0, 0, 0, 0);
 				}
 			}
 			else if(slump.arraySorted == false && slump.arrayPopulated == false)
@@ -66,7 +69,7 @@ public class lab3
 				}
 				else if(kommand > 1)
 				{
-					slump.msg(1);
+					slump.msg(1, 0, 0, 0, 0);
 				}
 			}
 		}
