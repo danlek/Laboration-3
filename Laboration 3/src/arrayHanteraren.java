@@ -1,22 +1,39 @@
 import java.util.Random;
+/**
+ * The arrayHanteraren class holds the array and handles nearly all the logic of this program.
+ * 
+ */
 public class arrayHanteraren 
 {
 	private int[] slumpadeTal = new int[100];
 	public boolean arrayPopulated = false;
 	public boolean arraySorted = false;
+	/**
+	 * The dice() method randomizes a number within the range 0 - 900 and 
+	 * returns the value to the part of the program that called it.
+	 */
 	private int dice()
 	{
 		Random dice = new Random();
 		return dice.nextInt(900);
 	}
+	/**
+	 * A simple get() function
+	 */
 	private int get(int index)
 	{
 		return slumpadeTal[index];
 	}
+	/**
+	 * A simple set() function
+	 */
 	private void set(int index, int value)
 	{
 		slumpadeTal[index] = value;
 	}
+	/**
+	 * The populate() method populates the array with randomized values
+	 */
 	public void populate()
 	{
 		for(int i = 0; i < 100; i++)
@@ -27,6 +44,10 @@ public class arrayHanteraren
 		arrayPopulated = true;
 		arraySorted = false;
 	}
+	/**
+	 * The display() method gets the values from the array and formats the output on the 
+	 * screen to conform with the specifications for the program.
+	 */
 	public void display()
 	{
 		int counter = 0;
@@ -53,6 +74,10 @@ public class arrayHanteraren
 		}
 		System.out.println("");//radbyte
 	}
+	/**
+	 * sort() method orders the values in the array in the order of 
+	 * smallest to largest. Uses a so called bubble sort algorithm.
+	 */
 	public void sort()
 	{
 		int tal1;
@@ -85,6 +110,10 @@ public class arrayHanteraren
 		}
 		arraySorted = true;
 	}
+	/**
+	 * statistics() method returns basic statistics of the values in the array. Minimum, maximum,
+	 * median and mean values.
+	 */
 	public void statistics()
 	{
 		int sum = 0;
@@ -100,6 +129,11 @@ public class arrayHanteraren
 //		System.out.println("");
 		msg(6, get(0), get(99), get(49), ((double)sum/(double)100));
 	}
+	/**
+	 * binarySearch() method does a binary search (duh) looking for the user specified value in the
+	 * array. If it finds the value in the array the user will be notified of which row and column
+	 * it is in. Else if the value is not found in the array, the user will be notified of this.
+	 */
 	public void binarySearch(int targetNumber)
 	{
 		int lowerBound = 0;
@@ -149,6 +183,10 @@ public class arrayHanteraren
 			
 		}
 	}
+	/**
+	 * msg() method was something I designed first with error messages in mind. Later on I decided to
+	 * build a bit more on it and made if return other standard messages.
+	 */
 	public void msg(int Typ, int arg1, int arg2, int arg3, double arg4)
 	{
 		switch(Typ)

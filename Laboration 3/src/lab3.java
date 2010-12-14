@@ -1,14 +1,29 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
+/**
+ * Slumpatron version 1.0
+ * Slumpatron has four major functions. First function populates an array with one hundred random
+ * numbers, within the interval 0 - 900.
+ * The second function is a so called bubble sort algorithm that sorts the values in the array in the
+ * order of from smallest to largest.
+ * Third function returns the minimum, maximum, median and mean value of the values in the array.
+ * The fourth and final function is a search function. The users specifies a number and the function
+ * will search for it in the array.
+ * @author danlek
+ *
+ */
 public class lab3 
 {
+	/**
+	 * The main function creates an instance of the arrayHanteraren class and then 
+	 * goes into a while loop until the user terminates the loop with a 0 input.
+	 */
 	public static void main(String[] args) 
 	{
 		arrayHanteraren slump = new arrayHanteraren();
 		Scanner kommandon = new Scanner(System.in);
 		int kommand = 1;
 
-		System.out.println("Välkommen till Slumpatron version 0.6! \nVälj bland följande alternativ!");
+		System.out.println("Välkommen till Slumpatron version 1.0! \nVälj bland följande alternativ!");
 		while(kommand != 0)
 		{
 			slump.msg(3, 0, 0, 0, 0);
@@ -30,12 +45,10 @@ public class lab3
 				}
 				else if(kommand == 3)
 				{
-					//TODO skapa metod som hanterar sån här bajs
 					slump.statistics();
 				}
 				else if(kommand == 4)
 				{
-					//TODO skapa metod som hanterar sån här bajs
 					System.out.print("Skriv ett nummer du vill söka efter i array'n: ");
 					kommand = kommandon.nextInt();
 					slump.binarySearch(kommand);
